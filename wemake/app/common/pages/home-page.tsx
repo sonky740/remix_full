@@ -4,15 +4,8 @@ import { ProductCard } from "~/features/products/components/product-card";
 import { PostCard } from "~/features/community/components/post-card";
 import { IdeaCard } from "~/features/ideas/components/idea-card";
 import { JobCard } from "~/features/jobs/components/job-card";
-import { TeamCard } from "~/features/teams/componepnts/team-card";
+import { TeamCard } from "~/features/teams/components/team-card";
 import type { ReactNode } from "react";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Home | wemake" },
-    { name: "description", content: "Welcome to wemake" },
-  ];
-};
 
 interface SectionGridProps {
   title: string;
@@ -21,6 +14,10 @@ interface SectionGridProps {
   linkTo: string;
   children: ReactNode;
   cols?: number;
+}
+
+interface Props {
+  loaderData: any;
 }
 
 function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 }: SectionGridProps) {
@@ -42,7 +39,9 @@ function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 
   );
 }
 
-export default function HomePage() {
+export default function HomePage({ loaderData }: Props) {
+  console.log(loaderData);
+
   return (
     <div className="px-20 space-y-20">
       <SectionGrid
@@ -110,6 +109,7 @@ export default function HomePage() {
         cols={4}
       >
         {Array.from({ length: 5 }).map((_, index) => (<JobCard
+          key={`job-${index}`}
           id="jobId"
           title="Software Engineer"
           company="Tesla"
@@ -146,4 +146,18 @@ export default function HomePage() {
       </SectionGrid>
     </div>
   );
+}
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Home | wemake" },
+    { name: "description", content: "Welcome to wemake" },
+  ];
+};
+
+// 서버 사이드 데이터 로드
+export const loader = () => {
+  return {
+    hello: 'world',
+  }
 }
