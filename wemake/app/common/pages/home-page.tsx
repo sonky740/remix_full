@@ -6,21 +6,32 @@ import { IdeaCard } from "~/features/ideas/components/idea-card";
 import { JobCard } from "~/features/jobs/components/job-card";
 import { TeamCard } from "~/features/teams/components/team-card";
 import type { ReactNode } from "react";
+import type { Route } from "./+types/home-page";
 
 interface SectionGridProps {
   title: string;
   description: string;
   linkText: string;
   linkTo: string;
-  children: ReactNode;
+  children?: ReactNode;
   cols?: number;
 }
 
-interface Props {
-  loaderData: any;
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Home | wemake" },
+    { name: "description", content: "Welcome to wemake" },
+  ];
+};
+
+// 서버 사이드 데이터 로드
+export const loader = () => {
+  return {
+    hello: 'world',
+  }
 }
 
-function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 }: SectionGridProps) {
+export function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 }: SectionGridProps) {
   return (
     <section className={`grid grid-cols-${cols} gap-4`}>
       <div>
@@ -39,7 +50,7 @@ function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 
   );
 }
 
-export default function HomePage({ loaderData }: Props) {
+export default function HomePage({ loaderData }: Route.ComponentProps) {
   console.log(loaderData);
 
   return (
@@ -146,18 +157,4 @@ export default function HomePage({ loaderData }: Props) {
       </SectionGrid>
     </div>
   );
-}
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Home | wemake" },
-    { name: "description", content: "Welcome to wemake" },
-  ];
-};
-
-// 서버 사이드 데이터 로드
-export const loader = () => {
-  return {
-    hello: 'world',
-  }
 }

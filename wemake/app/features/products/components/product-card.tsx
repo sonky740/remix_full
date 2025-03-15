@@ -9,7 +9,7 @@ import {
 import { Button } from '~/common/components/ui/button';
 import { ChevronUpIcon, EyeIcon, MessageCircleIcon } from 'lucide-react';
 
-interface ProductCardProps {
+export interface ProductCardProps {
   id: string;
   name: string;
   description: string;
