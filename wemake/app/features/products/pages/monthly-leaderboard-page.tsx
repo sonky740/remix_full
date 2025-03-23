@@ -5,8 +5,18 @@ export default function MonthlyLeaderboardPage() {
 
   // 월 이름 배열
   const monthNames = [
-    '1월', '2월', '3월', '4월', '5월', '6월',
-    '7월', '8월', '9월', '10월', '11월', '12월'
+    '1월',
+    '2월',
+    '3월',
+    '4월',
+    '5월',
+    '6월',
+    '7월',
+    '8월',
+    '9월',
+    '10월',
+    '11월',
+    '12월',
   ];
 
   // 월 이름 가져오기
@@ -14,24 +24,38 @@ export default function MonthlyLeaderboardPage() {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-6">{year}년 {monthName} 월간 리더보드</h1>
-      <p className="mb-6">{year}년 {monthName}에 가장 인기 있었던 제품들의 순위입니다.</p>
+      <h1 className="text-3xl font-bold mb-6">
+        {year}년 {monthName} 월간 리더보드
+      </h1>
+      <p className="mb-6">
+        {year}년 {monthName}에 가장 인기 있었던 제품들의 순위입니다.
+      </p>
 
       <div className="flex gap-4 mb-8">
-        <a href="/products/leaderboards" className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
+        <a
+          href="/products/leaderboards"
+          className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+        >
           전체 리더보드
         </a>
-        <a href={`/products/leaderboards/yearly/${year}`} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <a
+          href={`/products/leaderboards/yearly/${year}`}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
           {year}년 연간 리더보드
         </a>
 
         <select
           className="px-4 py-2 border rounded"
           value={month}
-          onChange={(e) => window.location.href = `/products/leaderboards/monthly/${year}/${e.target.value}`}
+          onChange={e =>
+            (window.location.href = `/products/leaderboards/monthly/${year}/${e.target.value}`)
+          }
         >
           {monthNames.map((name, index) => (
-            <option key={index + 1} value={index + 1}>{name}</option>
+            <option key={index + 1} value={index + 1}>
+              {name}
+            </option>
           ))}
         </select>
       </div>
@@ -88,13 +112,15 @@ export default function MonthlyLeaderboardPage() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">{year}년 {monthName} 주간 트렌드</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          {year}년 {monthName} 주간 트렌드
+        </h2>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <p className="mb-4">주간 인기 제품 트렌드를 확인하세요:</p>
           <div className="grid grid-cols-5 gap-4">
-            {Array.from({ length: 5 }, (_, i) => i + 1).map((week) => {
+            {Array.from({ length: 5 }, (_, i) => i + 1).map(week => {
               // 간단한 주 계산 (실제로는 더 복잡한 로직이 필요할 수 있음)
-              const weekNumber = ((parseInt(month || '1') - 1) * 4) + week;
+              const weekNumber = (parseInt(month || '1') - 1) * 4 + week;
               return (
                 <a
                   key={week}
@@ -110,4 +136,4 @@ export default function MonthlyLeaderboardPage() {
       </div>
     </div>
   );
-} 
+}

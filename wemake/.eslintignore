@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules
+.react-router
+
+# Build outputs
+build
+dist
+
+# Coverage directory
+coverage
+
+# Misc
+.prettierrc
+.prettierignore
+README.md 

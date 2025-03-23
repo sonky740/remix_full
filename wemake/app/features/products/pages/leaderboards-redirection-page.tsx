@@ -1,6 +1,6 @@
-import { data, redirect } from "react-router";
-import { DateTime } from "luxon";
-import type { Route } from "./+types/leaderboards-redirection-page";
+import { data, redirect } from 'react-router';
+import { DateTime } from 'luxon';
+import type { Route } from './+types/leaderboards-redirection-page';
 
 export function loader({ params }: Route.LoaderArgs) {
   const { period } = params;
@@ -27,7 +27,6 @@ export function loader({ params }: Route.LoaderArgs) {
   if (!url) {
     return data(null, { status: 400 });
   }
-
 
   return redirect(url);
 }

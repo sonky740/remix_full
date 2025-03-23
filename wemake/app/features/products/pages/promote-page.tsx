@@ -10,7 +10,7 @@ export default function PromotePage() {
     endDate: '',
     budget: '',
     targetAudience: [] as string[],
-    message: ''
+    message: '',
   });
 
   // 제출 상태
@@ -20,10 +20,30 @@ export default function PromotePage() {
 
   // 홍보 유형 옵션
   const promotionTypes = [
-    { id: 'featured', name: '추천 제품', description: '메인 페이지에 제품을 추천 제품으로 표시합니다.', price: '100,000원/주' },
-    { id: 'spotlight', name: '스포트라이트', description: '카테고리 페이지 상단에 제품을 강조 표시합니다.', price: '50,000원/주' },
-    { id: 'newsletter', name: '뉴스레터', description: '주간 뉴스레터에 제품을 소개합니다.', price: '30,000원/회' },
-    { id: 'banner', name: '배너 광고', description: '사이트 전체에 배너 광고를 게재합니다.', price: '200,000원/주' }
+    {
+      id: 'featured',
+      name: '추천 제품',
+      description: '메인 페이지에 제품을 추천 제품으로 표시합니다.',
+      price: '100,000원/주',
+    },
+    {
+      id: 'spotlight',
+      name: '스포트라이트',
+      description: '카테고리 페이지 상단에 제품을 강조 표시합니다.',
+      price: '50,000원/주',
+    },
+    {
+      id: 'newsletter',
+      name: '뉴스레터',
+      description: '주간 뉴스레터에 제품을 소개합니다.',
+      price: '30,000원/회',
+    },
+    {
+      id: 'banner',
+      name: '배너 광고',
+      description: '사이트 전체에 배너 광고를 게재합니다.',
+      price: '200,000원/주',
+    },
   ];
 
   // 대상 사용자 옵션
@@ -33,18 +53,20 @@ export default function PromotePage() {
     { id: 'marketers', name: '마케터' },
     { id: 'entrepreneurs', name: '창업자' },
     { id: 'students', name: '학생' },
-    { id: 'professionals', name: '전문가' }
+    { id: 'professionals', name: '전문가' },
   ];
 
   // 제품 목록 (예시)
   const products = [
     { id: 'product-1', name: '제품 1' },
     { id: 'product-2', name: '제품 2' },
-    { id: 'product-3', name: '제품 3' }
+    { id: 'product-3', name: '제품 3' },
   ];
 
   // 입력 핸들러
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -56,7 +78,7 @@ export default function PromotePage() {
       setFormData(prev => ({
         ...prev,
         productId: selectedProduct.id,
-        productName: selectedProduct.name
+        productName: selectedProduct.name,
       }));
     }
   };
@@ -65,9 +87,15 @@ export default function PromotePage() {
   const handleAudienceToggle = (audienceId: string) => {
     setFormData(prev => {
       if (prev.targetAudience.includes(audienceId)) {
-        return { ...prev, targetAudience: prev.targetAudience.filter(id => id !== audienceId) };
+        return {
+          ...prev,
+          targetAudience: prev.targetAudience.filter(id => id !== audienceId),
+        };
       } else {
-        return { ...prev, targetAudience: [...prev.targetAudience, audienceId] };
+        return {
+          ...prev,
+          targetAudience: [...prev.targetAudience, audienceId],
+        };
       }
     });
   };
@@ -115,7 +143,7 @@ export default function PromotePage() {
         endDate: '',
         budget: '',
         targetAudience: [],
-        message: ''
+        message: '',
       });
     }, 1500);
   };
@@ -151,7 +179,9 @@ export default function PromotePage() {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-2">제품 홍보</h1>
-      <p className="text-gray-600 mb-8">제품을 효과적으로 홍보하고 더 많은 사용자에게 노출시키세요.</p>
+      <p className="text-gray-600 mb-8">
+        제품을 효과적으로 홍보하고 더 많은 사용자에게 노출시키세요.
+      </p>
 
       {isSubmitted ? (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -178,7 +208,9 @@ export default function PromotePage() {
                 <h2 className="text-xl font-semibold mb-4">제품 정보</h2>
 
                 <div className="mb-4">
-                  <label htmlFor="productId" className="block font-medium mb-1">홍보할 제품 *</label>
+                  <label htmlFor="productId" className="block font-medium mb-1">
+                    홍보할 제품 *
+                  </label>
                   <select
                     id="productId"
                     name="productId"
@@ -189,7 +221,9 @@ export default function PromotePage() {
                   >
                     <option value="">제품 선택</option>
                     {products.map(product => (
-                      <option key={product.id} value={product.id}>{product.name}</option>
+                      <option key={product.id} value={product.id}>
+                        {product.name}
+                      </option>
                     ))}
                   </select>
                   <p className="text-gray-500 text-sm mt-1">
@@ -207,7 +241,10 @@ export default function PromotePage() {
                   <label className="block font-medium mb-1">홍보 유형 *</label>
                   <div className="grid grid-cols-1 gap-4">
                     {promotionTypes.map(type => (
-                      <div key={type.id} className="border rounded p-4 hover:border-blue-500 cursor-pointer">
+                      <div
+                        key={type.id}
+                        className="border rounded p-4 hover:border-blue-500 cursor-pointer"
+                      >
                         <div className="flex items-start">
                           <input
                             type="radio"
@@ -233,7 +270,9 @@ export default function PromotePage() {
 
                 <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="startDate" className="block font-medium mb-1">시작일 *</label>
+                    <label htmlFor="startDate" className="block font-medium mb-1">
+                      시작일 *
+                    </label>
                     <input
                       type="date"
                       id="startDate"
@@ -245,7 +284,9 @@ export default function PromotePage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="endDate" className="block font-medium mb-1">종료일 *</label>
+                    <label htmlFor="endDate" className="block font-medium mb-1">
+                      종료일 *
+                    </label>
                     <input
                       type="date"
                       id="endDate"
@@ -259,7 +300,9 @@ export default function PromotePage() {
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="budget" className="block font-medium mb-1">예산 *</label>
+                  <label htmlFor="budget" className="block font-medium mb-1">
+                    예산 *
+                  </label>
                   <input
                     type="text"
                     id="budget"
@@ -280,10 +323,11 @@ export default function PromotePage() {
                         key={audience.id}
                         type="button"
                         onClick={() => handleAudienceToggle(audience.id)}
-                        className={`px-3 py-1 rounded text-sm ${formData.targetAudience.includes(audience.id)
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                          }`}
+                        className={`px-3 py-1 rounded text-sm ${
+                          formData.targetAudience.includes(audience.id)
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                        }`}
                       >
                         {audience.name}
                       </button>
@@ -292,7 +336,9 @@ export default function PromotePage() {
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="message" className="block font-medium mb-1">추가 메시지</label>
+                  <label htmlFor="message" className="block font-medium mb-1">
+                    추가 메시지
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -345,7 +391,9 @@ export default function PromotePage() {
               {formData.startDate && formData.endDate && (
                 <div className="mb-4">
                   <h3 className="font-medium text-gray-600">홍보 기간</h3>
-                  <p>{formData.startDate} ~ {formData.endDate}</p>
+                  <p>
+                    {formData.startDate} ~ {formData.endDate}
+                  </p>
                 </div>
               )}
 
@@ -365,15 +413,17 @@ export default function PromotePage() {
                   <span>예상 비용</span>
                   <span className="text-xl text-blue-600">{calculatePrice()}</span>
                 </div>
-                <p className="text-gray-500 text-sm mt-2">
-                  최종 비용은 담당자 검토 후 확정됩니다.
-                </p>
+                <p className="text-gray-500 text-sm mt-2">최종 비용은 담당자 검토 후 확정됩니다.</p>
               </div>
 
               <div className="mt-6">
                 <h3 className="font-medium mb-2">도움이 필요하신가요?</h3>
                 <p className="text-gray-600 text-sm">
-                  홍보 관련 문의사항은 <a href="mailto:promo@example.com" className="text-blue-600 hover:underline">promo@example.com</a>으로 연락주세요.
+                  홍보 관련 문의사항은{' '}
+                  <a href="mailto:promo@example.com" className="text-blue-600 hover:underline">
+                    promo@example.com
+                  </a>
+                  으로 연락주세요.
                 </p>
               </div>
             </div>
@@ -382,4 +432,4 @@ export default function PromotePage() {
       )}
     </div>
   );
-} 
+}

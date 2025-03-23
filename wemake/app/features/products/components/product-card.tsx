@@ -33,9 +33,7 @@ export function ProductCard({
           <CardTitle className="text-2xl font-semibold leading-none tracking-tight">
             {name}
           </CardTitle>
-          <CardDescription className="text-muted-foreground">
-            {description}
-          </CardDescription>
+          <CardDescription className="text-muted-foreground">{description}</CardDescription>
           <div className="flex items-center gap-4 mt-2">
             <div className="flex items-center gap-px text-xs text-muted-foreground">
               <MessageCircleIcon className="w-4 h-4" />

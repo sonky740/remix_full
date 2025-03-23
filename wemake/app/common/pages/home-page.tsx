@@ -1,12 +1,12 @@
-import { Link, type MetaFunction } from "react-router";
-import { Button } from "~/common/components/ui/button";
-import { ProductCard } from "~/features/products/components/product-card";
-import { PostCard } from "~/features/community/components/post-card";
-import { IdeaCard } from "~/features/ideas/components/idea-card";
-import { JobCard } from "~/features/jobs/components/job-card";
-import { TeamCard } from "~/features/teams/components/team-card";
-import type { ReactNode } from "react";
-import type { Route } from "./+types/home-page";
+import { Link, type MetaFunction } from 'react-router';
+import { Button } from '~/common/components/ui/button';
+import { ProductCard } from '~/features/products/components/product-card';
+import { PostCard } from '~/features/community/components/post-card';
+import { IdeaCard } from '~/features/ideas/components/idea-card';
+import { JobCard } from '~/features/jobs/components/job-card';
+import { TeamCard } from '~/features/teams/components/team-card';
+import type { ReactNode } from 'react';
+import type { Route } from './+types/home-page';
 
 interface SectionGridProps {
   title: string;
@@ -18,29 +18,29 @@ interface SectionGridProps {
 }
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Home | wemake" },
-    { name: "description", content: "Welcome to wemake" },
-  ];
+  return [{ title: 'Home | wemake' }, { name: 'description', content: 'Welcome to wemake' }];
 };
 
 // 서버 사이드 데이터 로드
 export const loader = () => {
   return {
     hello: 'world',
-  }
-}
+  };
+};
 
-export function SectionGrid({ title, description, linkText, linkTo, children, cols = 3 }: SectionGridProps) {
+export function SectionGrid({
+  title,
+  description,
+  linkText,
+  linkTo,
+  children,
+  cols = 3,
+}: SectionGridProps) {
   return (
     <section className={`grid grid-cols-${cols} gap-4`}>
       <div>
-        <h2 className="text-5xl font-bold leading-tight tracking-tight">
-          {title}
-        </h2>
-        <p className="text-xl font-light text-foreground">
-          {description}
-        </p>
+        <h2 className="text-5xl font-bold leading-tight tracking-tight">{title}</h2>
+        <p className="text-xl font-light text-foreground">{description}</p>
         <Button variant="link" asChild className="text-lg p-0">
           <Link to={linkTo}>{linkText} &rarr;</Link>
         </Button>
@@ -119,18 +119,20 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
         linkTo="/jobs"
         cols={4}
       >
-        {Array.from({ length: 5 }).map((_, index) => (<JobCard
-          key={`job-${index}`}
-          id="jobId"
-          title="Software Engineer"
-          company="Tesla"
-          companyLogoUrl="https://github.com/teslamotors.png"
-          companyHq="San Francisco, CA"
-          postedAt="12 hours ago"
-          type="Full-time"
-          location="Remote"
-          salary="$100,000 - $120,000"
-        />))}
+        {Array.from({ length: 5 }).map((_, index) => (
+          <JobCard
+            key={`job-${index}`}
+            id="jobId"
+            title="Software Engineer"
+            company="Tesla"
+            companyLogoUrl="https://github.com/teslamotors.png"
+            companyHq="San Francisco, CA"
+            postedAt="12 hours ago"
+            type="Full-time"
+            location="Remote"
+            salary="$100,000 - $120,000"
+          />
+        ))}
       </SectionGrid>
 
       <SectionGrid
@@ -146,11 +148,7 @@ export default function HomePage({ loaderData }: Route.ComponentProps) {
             id={`teamId-${index}`}
             leaderUsername="lynn"
             leaderAvatarUrl="https://github.com/inthetiger.png"
-            positions={[
-              "React Developer",
-              "Backend Developer",
-              "Product Manager",
-            ]}
+            positions={['React Developer', 'Backend Developer', 'Product Manager']}
             projectDescription="a new social media platform"
           />
         ))}

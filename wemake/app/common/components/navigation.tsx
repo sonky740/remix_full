@@ -148,11 +148,7 @@ const menus = [
   },
 ];
 
-export default function Navigation({
-  isLoggedIn,
-  hasNotifications,
-  hasMessages,
-}: NavigationProps) {
+export default function Navigation({ isLoggedIn, hasNotifications, hasMessages }: NavigationProps) {
   return (
     <nav className="flex px-20 h-16 items-center justify-between backdrop-blur fixed top-0 left-0 right-0 z-50 bg-background/50">
       <div className="flex items-center">
@@ -162,7 +158,7 @@ export default function Navigation({
         <Separator orientation="vertical" className="h-6 mx-4" />
         <NavigationMenu>
           <NavigationMenuList>
-            {menus.map((menu) => (
+            {menus.map(menu => (
               <NavigationMenuItem key={menu.name}>
                 {menu.children ? (
                   <>
@@ -171,7 +167,7 @@ export default function Navigation({
                     </Link>
                     <NavigationMenuContent>
                       <ul className="grid w-[600px] font-light gap-3 p-4 grid-cols-2">
-                        {menu.children?.map((child) => (
+                        {menu.children?.map(child => (
                           <NavigationMenuItem
                             key={child.name}
                             className={cn([
@@ -274,10 +270,7 @@ export default function Navigation({
       ) : (
         <div className="flex gap-2">
           {/* 버튼 표현 방식 2가지 */}
-          <Link
-            to="/auth/login"
-            className={buttonVariants({ variant: 'outline' })}
-          >
+          <Link to="/auth/login" className={buttonVariants({ variant: 'outline' })}>
             Login
           </Link>
           <Button asChild>

@@ -1,17 +1,8 @@
-import { Link } from "react-router";
-import {
-  Card,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/common/components/ui/card";
-import { Badge } from "~/common/components/ui/badge";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "~/common/components/ui/avatar";
-import { Button } from "~/common/components/ui/button";
+import { Link } from 'react-router';
+import { Card, CardFooter, CardHeader, CardTitle } from '~/common/components/ui/card';
+import { Badge } from '~/common/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from '~/common/components/ui/avatar';
+import { Button } from '~/common/components/ui/button';
 
 interface TeamCardProps {
   id: string;
@@ -33,10 +24,7 @@ export function TeamCard({
       <Card className="bg-transparent hover:bg-card/50 transition-colors">
         <CardHeader className="flex flex-row items-center">
           <CardTitle className="text-base leading-loose">
-            <Badge
-              variant={"secondary"}
-              className="inline-flex shadow-sm items-center text-base"
-            >
+            <Badge variant={'secondary'} className="inline-flex shadow-sm items-center text-base">
               <span>@{leaderUsername}</span>
               <Avatar className="size-5">
                 <AvatarFallback>{leaderUsername[0]}</AvatarFallback>

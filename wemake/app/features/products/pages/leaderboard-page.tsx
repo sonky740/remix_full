@@ -1,12 +1,15 @@
-import { Link, type MetaFunction } from "react-router";
-import { Hero } from "~/common/components/hero";
-import { ProductCard, type ProductCardProps } from "../components/product-card";
-import { Button } from "~/common/components/ui/button";
-import { cn } from "~/lib/utils";
+import { Link, type MetaFunction } from 'react-router';
+import { Hero } from '~/common/components/hero';
+import { ProductCard, type ProductCardProps } from '../components/product-card';
+import { Button } from '~/common/components/ui/button';
+import { cn } from '~/lib/utils';
 export const meta: MetaFunction = () => {
   return [
-    { title: "Leaderboard | wemake" },
-    { name: "description", content: "Check out the rankings of popular products." },
+    { title: 'Leaderboard | wemake' },
+    {
+      name: 'description',
+      content: 'Check out the rankings of popular products.',
+    },
   ];
 };
 
@@ -18,18 +21,20 @@ interface LeaderboardSectionProps {
   linkPath: string;
 }
 
-function LeaderboardSection({ type, title, description, linkPath, products }: LeaderboardSectionProps) {
+function LeaderboardSection({
+  type,
+  title,
+  description,
+  linkPath,
+  products,
+}: LeaderboardSectionProps) {
   return (
-    <section className={cn("grid grid-cols-3 gap-4", { type })}>
+    <section className={cn('grid grid-cols-3 gap-4', { type })}>
       <div>
-        <h2 className="text-3xl font-bold leading-tight tracking-tight">
-          {title}
-        </h2>
-        <p className="text-xl font-light text-foreground">
-          {description}
-        </p>
+        <h2 className="text-3xl font-bold leading-tight tracking-tight">{title}</h2>
+        <p className="text-xl font-light text-foreground">{description}</p>
       </div>
-      {products.map((product) => (
+      {products.map(product => (
         <ProductCard key={product.id} {...product} />
       ))}
       <Button variant="link" asChild className="text-lg p-0 self-center">
@@ -42,31 +47,30 @@ function LeaderboardSection({ type, title, description, linkPath, products }: Le
 export default function LeaderboardPage() {
   const tempProducts = [
     {
-      id: "1",
-      name: "Product 1",
-      description: "Product 1 description",
+      id: '1',
+      name: 'Product 1',
+      description: 'Product 1 description',
       commentsCount: 12,
       viewsCount: 12,
       votesCount: 120,
     },
     {
-      id: "2",
-      name: "Product 2",
-      description: "Product 2 description",
+      id: '2',
+      name: 'Product 2',
+      description: 'Product 2 description',
       commentsCount: 12,
       viewsCount: 12,
       votesCount: 120,
     },
     {
-      id: "3",
-      name: "Product 3",
-      description: "Product 3 description",
+      id: '3',
+      name: 'Product 3',
+      description: 'Product 3 description',
       commentsCount: 12,
       viewsCount: 12,
       votesCount: 120,
     },
   ];
-
 
   return (
     <div className="space-y-20">
@@ -101,4 +105,4 @@ export default function LeaderboardPage() {
       />
     </div>
   );
-} 
+}

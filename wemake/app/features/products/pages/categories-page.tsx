@@ -12,7 +12,7 @@ export default function CategoriesPage() {
     { id: 'education', name: '교육', count: 65, icon: '📚' },
     { id: 'health', name: '건강', count: 55, icon: '🏥' },
     { id: 'finance', name: '금융', count: 50, icon: '💰' },
-    { id: 'entertainment', name: '엔터테인먼트', count: 80, icon: '🎬' }
+    { id: 'entertainment', name: '엔터테인먼트', count: 80, icon: '🎬' },
   ];
 
   return (
@@ -24,13 +24,16 @@ export default function CategoriesPage() {
         <a href="/products" className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
           모든 제품
         </a>
-        <a href="/products/leaderboards" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <a
+          href="/products/leaderboards"
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
           리더보드
         </a>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {categories.map((category) => (
+        {categories.map(category => (
           <a
             key={category.id}
             href={`/products/categories/${category.id}`}
@@ -43,12 +46,8 @@ export default function CategoriesPage() {
                 <p className="text-gray-600">{category.count}개의 제품</p>
               </div>
             </div>
-            <p className="text-gray-700">
-              {category.name} 카테고리의 모든 제품을 확인하세요.
-            </p>
-            <div className="mt-4 text-blue-600 hover:underline">
-              카테고리 보기 &rarr;
-            </div>
+            <p className="text-gray-700">{category.name} 카테고리의 모든 제품을 확인하세요.</p>
+            <div className="mt-4 text-blue-600 hover:underline">카테고리 보기 &rarr;</div>
           </a>
         ))}
       </div>
@@ -95,4 +94,4 @@ export default function CategoriesPage() {
       </div>
     </div>
   );
-} 
+}

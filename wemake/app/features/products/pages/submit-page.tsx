@@ -11,7 +11,7 @@ export default function SubmitPage() {
     screenshots: [] as File[],
     pricing: 'free',
     customPricing: '',
-    tags: [] as string[]
+    tags: [] as string[],
   });
 
   // 제출 상태
@@ -32,7 +32,7 @@ export default function SubmitPage() {
     { id: 'education', name: '교육' },
     { id: 'health', name: '건강' },
     { id: 'finance', name: '금융' },
-    { id: 'entertainment', name: '엔터테인먼트' }
+    { id: 'entertainment', name: '엔터테인먼트' },
   ];
 
   // 가격 옵션
@@ -41,18 +41,35 @@ export default function SubmitPage() {
     { id: 'freemium', name: '프리미엄(기본 무료)' },
     { id: 'paid', name: '유료' },
     { id: 'subscription', name: '구독' },
-    { id: 'custom', name: '직접 입력' }
+    { id: 'custom', name: '직접 입력' },
   ];
 
   // 태그 목록
   const availableTags = [
-    '웹', '모바일', '데스크톱', '오픈소스', '클라우드', 'SaaS',
-    'AI', '머신러닝', '블록체인', 'IoT', '생산성', '협업',
-    '커뮤니케이션', '디자인', '개발', '마케팅', '분석', '보안'
+    '웹',
+    '모바일',
+    '데스크톱',
+    '오픈소스',
+    '클라우드',
+    'SaaS',
+    'AI',
+    '머신러닝',
+    '블록체인',
+    'IoT',
+    '생산성',
+    '협업',
+    '커뮤니케이션',
+    '디자인',
+    '개발',
+    '마케팅',
+    '분석',
+    '보안',
   ];
 
   // 입력 핸들러
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -70,7 +87,7 @@ export default function SubmitPage() {
       const newScreenshots = Array.from(e.target.files);
       setFormData(prev => ({
         ...prev,
-        screenshots: [...prev.screenshots, ...newScreenshots]
+        screenshots: [...prev.screenshots, ...newScreenshots],
       }));
     }
   };
@@ -79,7 +96,7 @@ export default function SubmitPage() {
   const handleRemoveScreenshot = (index: number) => {
     setFormData(prev => ({
       ...prev,
-      screenshots: prev.screenshots.filter((_, i) => i !== index)
+      screenshots: prev.screenshots.filter((_, i) => i !== index),
     }));
   };
 
@@ -133,7 +150,7 @@ export default function SubmitPage() {
         screenshots: [],
         pricing: 'free',
         customPricing: '',
-        tags: []
+        tags: [],
       });
     }, 1500);
   };
@@ -166,7 +183,9 @@ export default function SubmitPage() {
             <h2 className="text-xl font-semibold mb-4">기본 정보</h2>
 
             <div className="mb-4">
-              <label htmlFor="name" className="block font-medium mb-1">제품 이름 *</label>
+              <label htmlFor="name" className="block font-medium mb-1">
+                제품 이름 *
+              </label>
               <input
                 type="text"
                 id="name"
@@ -179,7 +198,9 @@ export default function SubmitPage() {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="description" className="block font-medium mb-1">제품 설명 *</label>
+              <label htmlFor="description" className="block font-medium mb-1">
+                제품 설명 *
+              </label>
               <textarea
                 id="description"
                 name="description"
@@ -189,11 +210,15 @@ export default function SubmitPage() {
                 className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
-              <p className="text-gray-500 text-sm mt-1">제품에 대한 간결하고 명확한 설명을 작성하세요.</p>
+              <p className="text-gray-500 text-sm mt-1">
+                제품에 대한 간결하고 명확한 설명을 작성하세요.
+              </p>
             </div>
 
             <div className="mb-4">
-              <label htmlFor="category" className="block font-medium mb-1">카테고리 *</label>
+              <label htmlFor="category" className="block font-medium mb-1">
+                카테고리 *
+              </label>
               <select
                 id="category"
                 name="category"
@@ -204,13 +229,17 @@ export default function SubmitPage() {
               >
                 <option value="">카테고리 선택</option>
                 {categories.map(category => (
-                  <option key={category.id} value={category.id}>{category.name}</option>
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
                 ))}
               </select>
             </div>
 
             <div className="mb-4">
-              <label htmlFor="website" className="block font-medium mb-1">웹사이트 URL</label>
+              <label htmlFor="website" className="block font-medium mb-1">
+                웹사이트 URL
+              </label>
               <input
                 type="url"
                 id="website"
@@ -227,7 +256,9 @@ export default function SubmitPage() {
             <h2 className="text-xl font-semibold mb-4">미디어</h2>
 
             <div className="mb-4">
-              <label htmlFor="logo" className="block font-medium mb-1">로고</label>
+              <label htmlFor="logo" className="block font-medium mb-1">
+                로고
+              </label>
               <input
                 type="file"
                 id="logo"
@@ -253,7 +284,9 @@ export default function SubmitPage() {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="screenshots" className="block font-medium mb-1">스크린샷</label>
+              <label htmlFor="screenshots" className="block font-medium mb-1">
+                스크린샷
+              </label>
               <input
                 type="file"
                 id="screenshots"
@@ -334,16 +367,19 @@ export default function SubmitPage() {
                     key={tag}
                     type="button"
                     onClick={() => handleTagToggle(tag)}
-                    className={`px-3 py-1 rounded text-sm ${formData.tags.includes(tag)
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                      }`}
+                    className={`px-3 py-1 rounded text-sm ${
+                      formData.tags.includes(tag)
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                    }`}
                   >
                     {tag}
                   </button>
                 ))}
               </div>
-              <p className="text-gray-500 text-sm mt-1">제품과 관련된 태그를 선택하세요 (최대 5개)</p>
+              <p className="text-gray-500 text-sm mt-1">
+                제품과 관련된 태그를 선택하세요 (최대 5개)
+              </p>
             </div>
           </div>
 
@@ -367,4 +403,4 @@ export default function SubmitPage() {
       )}
     </div>
   );
-} 
+}

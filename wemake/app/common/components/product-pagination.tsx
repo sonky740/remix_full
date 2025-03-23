@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router";
+import { useSearchParams } from 'react-router';
 import {
   Pagination,
   PaginationContent,
@@ -7,24 +7,22 @@ import {
   PaginationEllipsis,
   PaginationNext,
   PaginationPrevious,
-} from "./ui/pagination";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+} from './ui/pagination';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type ProductPaginationProps = {
   totalPages: number;
 };
 
-export default function ProductPagination({
-  totalPages,
-}: ProductPaginationProps) {
+export default function ProductPagination({ totalPages }: ProductPaginationProps) {
   const [searchParams] = useSearchParams();
-  const page = Number(searchParams.get("page") ?? 1);
+  const page = Number(searchParams.get('page') ?? 1);
 
   const getUrlWithPage = (page: number) => {
     const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set("page", `${page}`);
+    newSearchParams.set('page', `${page}`);
     return `?${newSearchParams}`;
-  }
+  };
 
   return (
     <div>
@@ -42,35 +40,22 @@ export default function ProductPagination({
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationPrevious
-                  to={getUrlWithPage(page - 1)}
-                />
+                <PaginationPrevious to={getUrlWithPage(page - 1)} />
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink
-                  to={getUrlWithPage(page - 1)}
-                >
-                  {page - 1}
-                </PaginationLink>
+                <PaginationLink to={getUrlWithPage(page - 1)}>{page - 1}</PaginationLink>
               </PaginationItem>
             </>
           )}
           <PaginationItem>
-            <PaginationLink
-              to={getUrlWithPage(page)}
-              isActive
-            >
+            <PaginationLink to={getUrlWithPage(page)} isActive>
               {page}
             </PaginationLink>
           </PaginationItem>
           {page === totalPages ? null : (
             <>
               <PaginationItem>
-                <PaginationLink
-                  to={getUrlWithPage(page + 1)}
-                >
-                  {page + 1}
-                </PaginationLink>
+                <PaginationLink to={getUrlWithPage(page + 1)}>{page + 1}</PaginationLink>
               </PaginationItem>
               {page + 1 === totalPages ? null : (
                 <PaginationItem>
@@ -78,9 +63,7 @@ export default function ProductPagination({
                 </PaginationItem>
               )}
               <PaginationItem>
-                <PaginationNext
-                  to={getUrlWithPage(page + 1)}
-                />
+                <PaginationNext to={getUrlWithPage(page + 1)} />
               </PaginationItem>
               <PaginationItem>
                 <PaginationLink

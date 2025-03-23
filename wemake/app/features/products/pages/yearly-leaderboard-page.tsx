@@ -9,13 +9,16 @@ export default function YearlyLeaderboardPage() {
       <p className="mb-6">{year}년 한 해 동안 가장 인기 있었던 제품들의 순위입니다.</p>
 
       <div className="flex gap-4 mb-8">
-        <a href="/products/leaderboards" className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
+        <a
+          href="/products/leaderboards"
+          className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+        >
           전체 리더보드
         </a>
         <select
           className="px-4 py-2 border rounded"
           value={year}
-          onChange={(e) => window.location.href = `/products/leaderboards/yearly/${e.target.value}`}
+          onChange={e => (window.location.href = `/products/leaderboards/yearly/${e.target.value}`)}
         >
           <option value="2023">2023년</option>
           <option value="2022">2022년</option>
@@ -80,7 +83,7 @@ export default function YearlyLeaderboardPage() {
         <div className="bg-white p-6 rounded-lg shadow-md">
           <p className="mb-4">월별 인기 제품 트렌드를 확인하세요:</p>
           <div className="grid grid-cols-4 gap-4">
-            {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
+            {Array.from({ length: 12 }, (_, i) => i + 1).map(month => (
               <a
                 key={month}
                 href={`/products/leaderboards/monthly/${year}/${month}`}
@@ -94,4 +97,4 @@ export default function YearlyLeaderboardPage() {
       </div>
     </div>
   );
-} 
+}

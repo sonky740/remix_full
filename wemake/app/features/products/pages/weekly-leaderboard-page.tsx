@@ -9,27 +9,44 @@ export default function WeeklyLeaderboardPage() {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-6">{year}년 {weekNumber}주차 리더보드</h1>
-      <p className="mb-6">{year}년 {weekNumber}주차에 가장 인기 있었던 제품들의 순위입니다.</p>
+      <h1 className="text-3xl font-bold mb-6">
+        {year}년 {weekNumber}주차 리더보드
+      </h1>
+      <p className="mb-6">
+        {year}년 {weekNumber}주차에 가장 인기 있었던 제품들의 순위입니다.
+      </p>
 
       <div className="flex gap-4 mb-8">
-        <a href="/products/leaderboards" className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
+        <a
+          href="/products/leaderboards"
+          className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+        >
           전체 리더보드
         </a>
-        <a href={`/products/leaderboards/yearly/${year}`} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <a
+          href={`/products/leaderboards/yearly/${year}`}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
           {year}년 연간 리더보드
         </a>
-        <a href={`/products/leaderboards/monthly/${year}/${monthEstimate}`} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        <a
+          href={`/products/leaderboards/monthly/${year}/${monthEstimate}`}
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
           {monthEstimate}월 월간 리더보드
         </a>
 
         <select
           className="px-4 py-2 border rounded"
           value={week}
-          onChange={(e) => window.location.href = `/products/leaderboards/weekly/${year}/${e.target.value}`}
+          onChange={e =>
+            (window.location.href = `/products/leaderboards/weekly/${year}/${e.target.value}`)
+          }
         >
-          {Array.from({ length: 52 }, (_, i) => i + 1).map((w) => (
-            <option key={w} value={w}>{w}주차</option>
+          {Array.from({ length: 52 }, (_, i) => i + 1).map(w => (
+            <option key={w} value={w}>
+              {w}주차
+            </option>
           ))}
         </select>
       </div>
@@ -86,15 +103,20 @@ export default function WeeklyLeaderboardPage() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">{year}년 {weekNumber}주차 일간 트렌드</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          {year}년 {weekNumber}주차 일간 트렌드
+        </h2>
         <div className="bg-white p-6 rounded-lg shadow-md">
           <p className="mb-4">일간 인기 제품 트렌드를 확인하세요:</p>
           <div className="grid grid-cols-7 gap-4">
-            {Array.from({ length: 7 }, (_, i) => i + 1).map((day) => {
+            {Array.from({ length: 7 }, (_, i) => i + 1).map(day => {
               // 간단한 날짜 계산 (실제로는 더 복잡한 로직이 필요할 수 있음)
-              const dayOfYear = ((weekNumber - 1) * 7) + day;
+              const dayOfYear = (weekNumber - 1) * 7 + day;
               const date = new Date(parseInt(year || '2023'), 0, dayOfYear);
-              const formattedDate = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`;
+              const formattedDate = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(
+                2,
+                '0'
+              )}${String(date.getDate()).padStart(2, '0')}`;
 
               return (
                 <a
@@ -111,4 +133,4 @@ export default function WeeklyLeaderboardPage() {
       </div>
     </div>
   );
-} 
+}

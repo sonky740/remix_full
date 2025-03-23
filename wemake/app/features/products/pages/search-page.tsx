@@ -17,7 +17,7 @@ export default function SearchPage() {
     { id: 'services', name: '서비스' },
     { id: 'mobile', name: '모바일' },
     { id: 'ai', name: '인공지능' },
-    { id: 'iot', name: '사물인터넷' }
+    { id: 'iot', name: '사물인터넷' },
   ];
 
   // 정렬 옵션
@@ -25,7 +25,7 @@ export default function SearchPage() {
     { value: 'relevance', label: '관련성' },
     { value: 'newest', label: '최신순' },
     { value: 'popular', label: '인기순' },
-    { value: 'rating', label: '평점순' }
+    { value: 'rating', label: '평점순' },
   ];
 
   // 검색 핸들러
@@ -45,7 +45,9 @@ export default function SearchPage() {
         category: categories[Math.floor(Math.random() * (categories.length - 1)) + 1].name,
         rating: (3.5 + Math.random() * 1.5).toFixed(1),
         reviews: Math.floor(Math.random() * 500) + 10,
-        date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0]
+        date: new Date(Date.now() - Math.floor(Math.random() * 10000000000))
+          .toISOString()
+          .split('T')[0],
       }));
 
       setResults(mockResults);
@@ -66,7 +68,9 @@ export default function SearchPage() {
           category: categories[Math.floor(Math.random() * (categories.length - 1)) + 1].name,
           rating: (3.5 + Math.random() * 1.5).toFixed(1),
           reviews: Math.floor(Math.random() * 500) + 10,
-          date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0]
+          date: new Date(Date.now() - Math.floor(Math.random() * 10000000000))
+            .toISOString()
+            .split('T')[0],
         }));
 
         setResults(mockResults);
@@ -163,10 +167,14 @@ export default function SearchPage() {
           {/* 정렬 옵션 */}
           <div className="flex justify-end mb-4">
             <div className="flex items-center">
-              <label htmlFor="sort" className="mr-2">정렬:</label>
+              <label htmlFor="sort" className="mr-2">
+                정렬:
+              </label>
               <select id="sort" className="px-3 py-2 border rounded">
                 {sortOptions.map(option => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
                 ))}
               </select>
             </div>
@@ -219,17 +227,23 @@ export default function SearchPage() {
           {!loading && results.length > 0 && (
             <div className="mt-8 flex justify-center">
               <nav className="flex items-center">
-                <a href="#" className="px-3 py-1 border rounded-l hover:bg-gray-100">이전</a>
+                <a href="#" className="px-3 py-1 border rounded-l hover:bg-gray-100">
+                  이전
+                </a>
                 {[1, 2, 3, 4, 5].map(page => (
                   <a
                     key={page}
                     href="#"
-                    className={`px-3 py-1 border-t border-b ${page === 1 ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100'}`}
+                    className={`px-3 py-1 border-t border-b ${
+                      page === 1 ? 'bg-blue-100 text-blue-800' : 'hover:bg-gray-100'
+                    }`}
                   >
                     {page}
                   </a>
                 ))}
-                <a href="#" className="px-3 py-1 border rounded-r hover:bg-gray-100">다음</a>
+                <a href="#" className="px-3 py-1 border rounded-r hover:bg-gray-100">
+                  다음
+                </a>
               </nav>
             </div>
           )}
@@ -237,4 +251,4 @@ export default function SearchPage() {
       </div>
     </div>
   );
-} 
+}
