@@ -24,7 +24,7 @@ export default [
         'features/products/pages/weekly-leaderboard-page.tsx'
       ),
       route(
-        '/daily/:day',
+        '/daily/:year/:month/:day',
         'features/products/pages/daily-leaderboard-page.tsx'
       ),
       route('/:period', 'features/products/pages/leaderboards-redirection-page.tsx'),
