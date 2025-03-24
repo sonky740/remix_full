@@ -51,8 +51,6 @@ export function SectionGrid({
 }
 
 export default function HomePage({ loaderData }: Route.ComponentProps) {
-  console.log(loaderData);
-
   return (
     <div className="px-20 space-y-20">
       <SectionGrid
