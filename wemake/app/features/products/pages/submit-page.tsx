@@ -34,7 +34,7 @@ export default function SubmitPage() {
 
   return (
     <div>
-      <Hero title="Submit Your Product" subTitle="Share your product with the world" />
+      <Hero title="Submit Your Product" subtitle="Share your product with the world" />
       <Form className="grid grid-cols-2 gap-10 max-w-screen-lg mx-auto">
         <div className="space-y-5">
           <InputPair

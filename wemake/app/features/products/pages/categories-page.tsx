@@ -12,7 +12,7 @@ export const meta: Route.MetaFunction = () => {
 export default function CategoriesPage() {
   return (
     <div className="space-y-20">
-      <Hero title="Categories" subTitle="Browse products by category" />
+      <Hero title="Categories" subtitle="Browse products by category" />
       <div className="grid grid-cols-4 gap-6">
         {Array.from({ length: 10 }).map((_, index) => (
           <CategoryCard

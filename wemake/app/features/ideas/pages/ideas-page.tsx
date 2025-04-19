@@ -12,7 +12,7 @@ export const meta: Route.MetaFunction = () => {
 export default function IdeasPage() {
   return (
     <div className="space-y-20">
-      <Hero title="IdeasGPT" subTitle="Find ideas for your next project" />
+      <Hero title="IdeasGPT" subtitle="Find ideas for your next project" />
       <div className="grid grid-cols-4 gap-4">
         {Array.from({ length: 10 }).map((_, index) => (
           <IdeaCard

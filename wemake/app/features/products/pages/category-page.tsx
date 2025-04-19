@@ -16,7 +16,7 @@ export const meta: Route.MetaFunction = ({ params }) => {
 export default function CategoryPage() {
   return (
     <div className="space-y-20">
-      <Hero title="Developer Tools" subTitle="Tools for developers to build products faster" />
+      <Hero title="Developer Tools" subtitle="Tools for developers to build products faster" />
       <Form className="flex gap-2 justify-center max-w-screen-sm items-center mx-auto">
         <Input name="query" placeholder="Search for products" className="text-lg" />
         <Button type="submit">Search</Button>

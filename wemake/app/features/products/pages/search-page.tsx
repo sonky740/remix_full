@@ -46,7 +46,7 @@ export default function SearchPage({ loaderData }: Route.ComponentProps) {
 
   return (
     <div className="space-y-20">
-      <Hero title="Search" subTitle="Search for products by title or description" />
+      <Hero title="Search" subtitle="Search for products by title or description" />
       <Form className="flex gap-2 justify-center max-w-screen-sm items-center mx-auto">
         <Input name="query" placeholder="Search for products" className="text-lg" />
         <Button type="submit">Search</Button>

@@ -4,11 +4,11 @@ import { cn } from '~/lib/utils';
 interface HeroProps {
   title: string;
   className?: string;
-  subTitle?: string;
+  subtitle?: string;
   children?: ReactNode;
 }
 
-export function Hero({ title, subTitle, children, className }: HeroProps) {
+export function Hero({ title, subtitle, children, className }: HeroProps) {
   return (
     <div
       className={cn(
@@ -17,7 +17,7 @@ export function Hero({ title, subTitle, children, className }: HeroProps) {
       )}
     >
       <h1 className="text-5xl font-bold">{title}</h1>
-      {subTitle && <p className="text-2xl font-light text-foreground">{subTitle}</p>}
+      {subtitle && <p className="text-2xl font-light text-foreground">{subtitle}</p>}
       {children}
     </div>
   );

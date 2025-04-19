@@ -24,7 +24,7 @@ export default function ProductOverviewLayout() {
           </div>
         </div>
         <div className="flex gap-5">
-          <Button variant={'secondary'} size="lg" className="text-lg h-14 px-10">
+          <Button variant="secondary" size="lg" className="text-lg h-14 px-10">
             Visit Website
           </Button>
           <Button size="lg" className="text-lg h-14 px-10">

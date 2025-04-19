@@ -74,7 +74,7 @@ export default function LeaderboardPage() {
 
   return (
     <div className="space-y-20">
-      <Hero title="Leaderboard" subTitle="Check out the rankings of popular products." />
+      <Hero title="Leaderboard" subtitle="Check out the rankings of popular products." />
       <LeaderboardSection
         type="daily"
         title="Daily Leaderboard"

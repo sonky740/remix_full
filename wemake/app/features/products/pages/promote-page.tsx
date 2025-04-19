@@ -33,7 +33,7 @@ export default function PromotePage() {
 
   return (
     <div>
-      <Hero title="Promote Your Product" subTitle="Boost your product's visibility." />
+      <Hero title="Promote Your Product" subtitle="Boost your product's visibility." />
       <Form className="max-w-sm mx-auto flex flex-col gap-10 items-center">
         <SelectPair
           label="Select a product"

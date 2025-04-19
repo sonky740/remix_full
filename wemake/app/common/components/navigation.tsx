@@ -94,8 +94,8 @@ const menus = [
         to: '/jobs?type=internship',
       },
       {
-        name: 'Submit a Job',
-        description: 'Submit a new job to the community',
+        name: 'Post a Job',
+        description: 'Post a new job to the community',
         to: '/jobs/submit',
       },
     ],
