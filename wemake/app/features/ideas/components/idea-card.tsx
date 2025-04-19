@@ -26,7 +26,7 @@ export function IdeaCard({ id, title, viewsCount, postedAt, likesCount, claimed 
   return (
     <Card className="bg-transparent hover:bg-card/50 transition-colors">
       <CardHeader>
-        <Link to={`/ideas/${id}/claim`} onClick={onLinkClick}>
+        <Link to={`/ideas/${id}`} onClick={onLinkClick}>
           <CardTitle className="text-xl">
             <span
               className={cn(
