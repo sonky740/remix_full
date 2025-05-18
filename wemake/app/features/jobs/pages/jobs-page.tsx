@@ -23,24 +23,8 @@ export default function JobsPage() {
   return (
     <div className="space-y-20">
       <Hero title="Jobs" subtitle="Companies looking for makers" />
-      <div className="grid grid-cols-6 gap-20 items-start">
-        <div className="grid grid-cols-3 col-span-4 gap-5">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <JobCard
-              key={`jobId-${i}`}
-              id={`jobId-${i}`}
-              company="Tesla"
-              companyLogoUrl="https://github.com/facebook.png"
-              companyHq="San Francisco, CA"
-              title="Software Engineer"
-              postedAt="12 hours ago"
-              type="Full-time"
-              location="Remote"
-              salary="$100,000 - $120,000"
-            />
-          ))}
-        </div>
-        <div className="col-span-2 sticky top-20 flex flex-col gap-10">
+      <div className="grid grid-cols-1 gap-20 items-start xl:grid-cols-6">
+        <div className="top-20 flex flex-col gap-10 xl:col-span-2 md:order-2 md:sticky">
           <div className="flex flex-col items-start gap-2.5">
             <h4 className="text-sm text-muted-foreground font-bold">Type</h4>
             <div className="flex flex-wrap gap-2">
@@ -86,6 +70,22 @@ export default function JobsPage() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:col-span-4 md:order-1">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <JobCard
+              key={`jobId-${i}`}
+              id={`jobId-${i}`}
+              company="Tesla"
+              companyLogoUrl="https://github.com/facebook.png"
+              companyHq="San Francisco, CA"
+              title="Software Engineer"
+              postedAt="12 hours ago"
+              type="Full-time"
+              location="Remote"
+              salary="$100,000 - $120,000"
+            />
+          ))}
         </div>
       </div>
     </div>
